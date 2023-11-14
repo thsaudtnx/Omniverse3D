@@ -64,3 +64,19 @@ body {
   top: 0px;
   left: 10px;
 }
+
+button{
+  height: 40px;
+  width: 300px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  background: url('images/btn1.png') no-repeat;
+  line-height: 26px;
+  padding-top: 6px;
+}
+
+button:hover{
+  background: url('images/btn2.png') no-repeat;
+}
