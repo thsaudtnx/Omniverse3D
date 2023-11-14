@@ -15,8 +15,8 @@ const GamePage = () => {
   return (
     <>
       <Canvas>
-        <Sky sunPosition={[100, 100, 20]} />
-        <ambientLight intensity={0.5} /> {/* 물체에 적용될 광원의 밝기 */}
+        <Sky sunPosition={[0, 100, 20]} /> {/*modified lighting*/}
+        <ambientLight intensity={1.0} /> {/* 물체에 적용될 광원의 밝기 */}
         <FPV />
         <Physics> {/* 물리적인 계산이 필요한 요소는 Physics 내부에 선언한다. */}
           <Player />

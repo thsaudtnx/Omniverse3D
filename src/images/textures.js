@@ -5,7 +5,8 @@ import {
 	logImg,
 	grassImg,
 	glassImg,
-	woodImg
+	woodImg,
+	groundImg,
 } from './images'
 
 //textLoader : convert image file to Texture
@@ -15,7 +16,7 @@ const logTexture = new TextureLoader().load(logImg)
 const grassTexture = new TextureLoader().load(grassImg)
 const glassTexture = new TextureLoader().load(glassImg)
 const woodTexture = new TextureLoader().load(woodImg)
-const groundTexture = new TextureLoader().load(grassImg)
+const groundTexture = new TextureLoader().load(groundImg)
 
 dirtTexture.magFilter = NearestFilter;
 logTexture.magFilter = NearestFilter;
@@ -32,5 +33,5 @@ export {
 	grassTexture,
 	glassTexture,
 	woodTexture,
-	groundTexture
+	groundTexture,
 }

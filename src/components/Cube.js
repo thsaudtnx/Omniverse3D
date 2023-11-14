@@ -30,7 +30,8 @@ export const Cube = ({ position, texture }) => {
 				e.stopPropagation()
 				const clickedFace = Math.floor(e.faceIndex / 2)
 				const { x, y, z } = ref.current.position
-				if (e.altKey) {
+				//click on block to delete
+				if (e.button === 0) {
 					removeCube(x, y, z)
 					return
 				}
