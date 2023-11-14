@@ -30,9 +30,9 @@ export const Cube = ({ position, texture }) => {
 				e.stopPropagation()
 				const clickedFace = Math.floor(e.faceIndex / 2)
 				const { x, y, z } = ref.current.position
-				if (e.button) {
-					removeCube(x, y, z);
-					return;
+				if (e.altKey) {
+					removeCube(x, y, z)
+					return
 				}
 				else if (clickedFace === 0) {
 					addCube(x + 1, y, z)
