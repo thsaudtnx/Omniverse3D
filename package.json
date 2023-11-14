@@ -6,6 +6,9 @@
     "@react-three/cannon": "^6.6.0",
     "@react-three/drei": "^9.88.11",
     "@react-three/fiber": "^8.15.10",
+    "@supabase/auth-ui-react": "^0.4.6",
+    "@supabase/auth-ui-shared": "^0.1.8",
+    "@supabase/supabase-js": "^2.38.4",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -14,6 +17,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.18.0",
     "react-scripts": "5.0.1",
+    "styled-component": "^2.8.0",
     "three": "^0.158.0",
     "web-vitals": "^2.1.0",
     "zustand": "^4.4.6"

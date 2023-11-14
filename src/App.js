@@ -4,14 +4,12 @@ import GamePage from "./pages/GamePage";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LoginPage />}/>
-          <Route path="/game" element={<GamePage />}/>
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginPage />}/>
+        <Route path="/game" element={<GamePage />}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
