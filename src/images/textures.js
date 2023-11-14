@@ -8,6 +8,8 @@ import {
 	woodImg
 } from './images'
 
+//textLoader : convert image file to Texture
+//load() brings the image into the texture
 const dirtTexture = new TextureLoader().load(dirtImg)
 const logTexture = new TextureLoader().load(logImg)
 const grassTexture = new TextureLoader().load(grassImg)
