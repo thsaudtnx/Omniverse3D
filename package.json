@@ -12,13 +12,16 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "express": "^4.18.2",
     "nanoid": "^5.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.18.0",
     "react-scripts": "5.0.1",
-    "styled-component": "^2.8.0",
+    "styled-components": "^6.1.1",
     "three": "^0.158.0",
+    "uuid": "^9.0.1",
+    "vanta": "^0.5.24",
     "web-vitals": "^2.1.0",
     "zustand": "^4.4.6"
   },
@@ -46,7 +49,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "tailwindcss": "^3.3.5"
-  }
+  "devDependencies": {}
 }

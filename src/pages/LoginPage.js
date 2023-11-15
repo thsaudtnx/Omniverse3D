@@ -1,93 +1,68 @@
-import { useState, useEffect } from 'react'
-import { createClient } from '@supabase/supabase-js'
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
-
-const SUPABASE_KEY = process.env.REACT_APP_ANON_KEY
-const SUPABASE_URL = process.env.REACT_APP_PROJECT_URL
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
-const loginWithGoogle = async () => {
-  const { data, error } = await supabase.auth.signInWithOAuth({
-    provider: 'google',
-    options: {
-      queryParams: {
-        access_type: 'offline',
-        prompt: 'consent',
-      },
-    },
-  })
-}
-
-async function signUpNewUser(email, password) {
-  const { data, error } = await supabase.auth.signUp({
-    email : email,
-    password: password,
-    options: {
-      emailRedirectTo: 'https//example.com/welcome'
-    }
-  })
-}
-
-async function signInWithEmail(email, password) {
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email: email,
-    password: password
-  })
-}
-
-
-async function signOut() {
-  const { error } = await supabase.auth.signOut()
-}
-
-
-async function handleSignInWithGoogle(response) {
-  const { data, error } = await supabase.auth.signInWithIdToken({
-    token: response.credential,
-    nonce: 'NONCE', // must be the same one as provided in data-nonce (if any)
-  })
-}
-
-const customTheme = {
-  default: {
-    colors: {
-      brand: 'hsl(153 60.0% 53.0%)',
-      brandAccent: 'hsl(154 54.8% 45.1%)',
-      brandButtonText: 'white',
-      // ..
-    },
-  },
-  dark: {
-    colors: {
-      brandButtonText: 'white',
-      defaultButtonBackground: '#2e2e2e',
-      defaultButtonBackgroundHover: '#3e3e3e',
-      //..
-    },
-  },
-  // You can also add more theme variations with different names.
-  evenDarker: {
-    colors: {
-      brandButtonText: 'white',
-      defaultButtonBackground: '#1e1e1e',
-      defaultButtonBackgroundHover: '#2e2e2e',
-      //..
-    },
-  },
-}
+import RINGS from 'vanta/dist/vanta.rings.min';
+import * as THREE from "three";
+import { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router';
+import { supabase } from '../modules/supabase';
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+  const [vantaEffect, setVantaEffect] = useState(null);
+  const myRef = useRef(null);
+
+  useEffect(() => {
+    async function getUserData() {
+      await supabase.auth.getUser().then((value) => {
+        if (value.data?.user){
+          console.log(value.data.user);
+          navigate(`/${value.data.user.id}/game`);
+        }
+      })
+    };
+    getUserData();
+  }, [navigate])
+
+  useEffect(() => {
+    if (!vantaEffect) {
+      setVantaEffect(RINGS({
+        el: myRef.current,
+        THREE : THREE,
+      }))
+    }
+    return () => {
+      if (vantaEffect) vantaEffect.destroy()
+    }
+  }, [vantaEffect])
+  
+
   return (
-    <>
-      Loginpage
-      <Auth 
-        supabaseClient={supabase} 
-        appearance={{ theme: customTheme }}
-        theme="default"
-        providers={['google']}
-      />    
-    </>
+    <div 
+      ref={myRef}
+      style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      height: "100vh",
+    }}>
+      <div style={{
+        width: 400,
+        background : "white",
+        padding : 40,
+        borderRadius : 10,
+        opacity : 0.9,
+      }}>
+        <h3 style={{
+          textAlign : 'center', 
+          color : 'gray'
+          }}>Welcome to Omniverse 3D</h3>
+        <Auth 
+          supabaseClient={supabase} 
+          appearance={{ theme: ThemeSupa }}
+          providers={['google']}
+        />
+      </div>
+    </div>
   )
 }
 

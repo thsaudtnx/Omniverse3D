@@ -7,8 +7,26 @@ import { FPV } from '../components/FPV'
 import { Cubes } from '../components/Cubes'
 import { TextureSelector } from '../components/TextureSelector';
 import { Menu } from '../components/Menu';
+import { supabase } from '../modules/supabase';
+import { useNavigate, useParams } from 'react-router';
+import { useEffect } from 'react';
 
 const GamePage = () => {
+  const navigate = useNavigate();
+  const params = useParams();
+
+  useEffect(() => {
+    async function getUserData() {
+      await supabase.auth.getUser().then((value) => {
+        const user = value.data?.user;
+        if (user?.id !==params.userId || user===null){
+          navigate('/');
+        }
+      })
+    };
+    getUserData();
+  }, [navigate, params.userId])
+
   return (
     <>
       <Canvas>
