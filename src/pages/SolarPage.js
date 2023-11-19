@@ -17,13 +17,13 @@ const SolarPage = () => {
         <ambientLight intensity={1} />
         <directionalLight position={[0, 0, 0]} />
         <Stars 
-            radius={300} 
-            depth={60} 
-            count={20000}
-            factor={7}
-            saturation={0}
-            fade={true}
-          />
+          radius={300} 
+          depth={60} 
+          count={20000}
+          factor={7}
+          saturation={0}
+          fade={true}
+        />
         <SolarSystem />
       </Canvas>
     </CanvasContainer>

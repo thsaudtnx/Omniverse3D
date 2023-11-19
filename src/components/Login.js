@@ -1,15 +1,12 @@
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
-import GLOBE from 'vanta/dist/vanta.globe.min';
-import * as THREE from "three";
-import { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router';
 import { supabase } from '../modules/supabase';
+import { useNavigate } from 'react-router';
+import { useEffect } from 'react';
 
-const LoginPage = () => {
+
+const Login = () => {
   const navigate = useNavigate();
-  const [vantaEffect, setVantaEffect] = useState(null);
-  const myRef = useRef(null);
 
   useEffect(() => {
     async function getUserData() {
@@ -23,27 +20,12 @@ const LoginPage = () => {
     getUserData();
   }, [navigate])
 
-  useEffect(() => {
-    if (!vantaEffect) {
-      setVantaEffect(GLOBE({
-        el: myRef.current,
-        THREE : THREE,
-      }))
-    }
-    return () => {
-      if (vantaEffect) vantaEffect.destroy()
-    }
-  }, [vantaEffect])
-  
-
   return (
-    <div 
-      ref={myRef}
-      style={{
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      height: "100vh",
+    <div style={{
+      position: 'absolute',
+      top: 100,
+      left: 'calc(50% - 200px)',
+      zIndex : 1,
     }}>
       <div style={{
         width: 400,
@@ -63,7 +45,7 @@ const LoginPage = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LoginPage;
+export default Login;
