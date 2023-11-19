@@ -1,8 +1,8 @@
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
-import Earth from "../components/Earth";
 import styled from "styled-components";
 import { Stars } from "@react-three/drei";
+import Solar from "../components/Solar";
 
 const CanvasContainer = styled.div`
   width : 100vw;
@@ -29,7 +29,7 @@ const EarthPage = () => {
             saturation={0}
             fade={true}
           />
-          <Earth />
+          <Solar />
         </Suspense>
       </Canvas>
     </CanvasContainer>

@@ -17,8 +17,9 @@ import UranusTexture from '../images/solar/uranus.jpg';
 import UranusRingTexture from '../images/solar/uranus ring.png';
 import VenusTexture from '../images/solar/venus.jpg';
 import Planet from './Planet';
+import Earth from './Earth';
 
-const SolarSystem = () => {
+const Solar = () => {
     const [earth, jupiter, mars, mercury, neptune, pluto, saturn, sun, uranus,venus] = useLoader(
         TextureLoader, 
         [
@@ -39,10 +40,10 @@ const SolarSystem = () => {
         {
             texture : sun,
             size : 1.5,
-            position : [0, 0, 0],
-            rotationSpeed : 0.005, 
-            orbitSpeed : 0,
-            orbitRadius : 0,
+            position : [10, 0, 0],
+            rotationSpeed : 0.0005, 
+            orbitSpeed : 0.0006,
+            orbitRadius : 10,
     
         },
         {
@@ -50,7 +51,7 @@ const SolarSystem = () => {
             size : 0.4,
             position : [10, 0, 0],
             rotationSpeed : 0.012,
-            orbitSpeed : 0.009,  
+            orbitSpeed : 0.0009,  
             orbitRadius : 5,
         },
         {
@@ -58,23 +59,23 @@ const SolarSystem = () => {
             size : 0.6,
             position : [5, 0, 0],
             rotationSpeed : 0.015, 
-            orbitSpeed : 0.007,  
+            orbitSpeed : 0.0007,  
             orbitRadius : 7,
         },
-        {
+        /* {
             texture : earth,
             size : 0.8,
             position : [7, 0, 0],
             rotationSpeed : 0.005, 
-            orbitSpeed : 0.006,  
+            orbitSpeed : 0.0006,  
             orbitRadius : 10,
-        },
+        }, */
         {
             texture : mars,
             size : 0.85,
             position : [10, 0, 0],
             rotationSpeed : 0.0,
-            orbitSpeed : 0.0055,  
+            orbitSpeed : 0.00055,  
             orbitRadius : 12.5,
         },
         {
@@ -82,7 +83,7 @@ const SolarSystem = () => {
             size : 1.2,
             position : [5, 0, 0],
             rotationSpeed : 0.015, 
-            orbitSpeed : 0.005,  
+            orbitSpeed : 0.0005,  
             orbitRadius : 14,
         },
         {
@@ -90,7 +91,7 @@ const SolarSystem = () => {
             size : 0.9,
             position : [7, 0, 0],
             rotationSpeed : 0.002, 
-            orbitSpeed : 0.004,  
+            orbitSpeed : 0.0004,  
             orbitRadius : 16,
         },
         {
@@ -98,7 +99,7 @@ const SolarSystem = () => {
             size : 0.85,
             position : [10, 0, 0],
             rotationSpeed : 0.012,
-            orbitSpeed : 0.003,  
+            orbitSpeed : 0.0003,  
             orbitRadius : 18,
         },
         {
@@ -106,7 +107,7 @@ const SolarSystem = () => {
             size : 1.2,
             position : [5, 0, 0],
             rotationSpeed : 0.015, 
-            orbitSpeed : 0.002,  
+            orbitSpeed : 0.0002,  
             orbitRadius : 20,
         },
         {
@@ -114,7 +115,7 @@ const SolarSystem = () => {
             size : 0.5,
             position : [7, 0, 0],
             rotationSpeed : 0.002, 
-            orbitSpeed : 0.001,  
+            orbitSpeed : 0.0001,  
             orbitRadius : 22,
         }
     ];
@@ -128,11 +129,11 @@ const SolarSystem = () => {
                 position={p.position}
                 rotationSpeed={p.rotationSpeed} 
                 orbitSpeed={p.orbitSpeed}  
-                orbitRadius={p.orbitRadius}   
+                orbitRadius={p.orbitRadius}
             />)}
-            <OrbitControls />
+            <Earth />
         </>
     )
 }
 
-export default SolarSystem;
+export default Solar;

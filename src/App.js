@@ -2,14 +2,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import GamePage from "./pages/GamePage";
 import EarthPage from "./pages/EarthPage";
-import SolarPage from "./pages/SolarPage"
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LoginPage />}/>
-        <Route path="/:userId/solar" element={<SolarPage />}/>
         <Route path="/:userId/game" element={<GamePage />}/>
         <Route path="/:userId/earth" element={<EarthPage />} />
       </Routes>
