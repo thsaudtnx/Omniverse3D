@@ -1,8 +1,10 @@
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import styled from "styled-components";
 import { Stars } from "@react-three/drei";
 import Solar from "../components/Solar";
+import { useNavigate, useParams } from "react-router";
+import { supabase } from "../modules/supabase";
 
 const CanvasContainer = styled.div`
   width : 100vw;
@@ -11,6 +13,22 @@ const CanvasContainer = styled.div`
 `;
 
 const EarthPage = () => {
+
+  const navigate = useNavigate();
+  const params = useParams();
+
+  useEffect(() => {
+    async function getUserData() {
+      await supabase.auth.getUser().then((value) => {
+        const user = value.data?.user;
+        if (user?.id !==params.userId || user===null){
+          navigate('/');
+        }
+      })
+    };
+    getUserData();
+  }, [navigate, params.userId])
+
   return (
     <CanvasContainer>
       <Canvas>

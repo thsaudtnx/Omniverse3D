@@ -6,13 +6,70 @@ import EarthNightMap from '../assets/8k_earth_nightmap.jpg';
 import EarthSpecularMap from '../assets/8k_earth_specular_map.jpg';
 import { TextureLoader } from 'three';
 import { useFrame, useLoader } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { Html, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
-import Marker from './Marker';
-import { continents } from '../constants/Coordinates';
+import Markers from './Markers';
+import Description from './Description';
+
+const continents = [
+  {
+    id : 0,
+    name : 'Asia',
+    lat : 99.5,
+    long : 33,
+    description : 'This is Asia!',
+  },
+  {
+    id : 1,
+    name : 'Africa',
+    lat : 37.4,
+    long : 19.1,
+    description : 'This is Africa!',
+  },
+  {
+    id : 2,
+    name : 'Antartica',
+    lat : 0,
+    long : -89.5,
+    description : 'This is Antartica!',
+  },
+  {
+    id : 3,
+    name : 'South America',
+    lat : 14.8048,
+    long : 59.1625,
+    description : 'This is South America!',
+  },
+  {
+    id : 4,
+    name : 'North America',
+    lat : 70,
+    long : 20.6,
+    description : 'This is North America!',
+  },
+  {
+    id : 5,
+    name : 'Europe',
+    lat : 53.8,
+    long : 10.5,
+    description : 'This is Europe!',
+  },
+  {
+    id : 6,
+    name : 'Oceania',
+    lat : 37,
+    long : 154.5,
+    description : 'This is Oceania!',
+  },
+];
 
 const Earth = (props) => {
-  const [colorMap, normalMap, specularMap, cloudsMap, nightMap] = useLoader(
+  const [
+    colorMap, 
+    normalMap, 
+    specularMap, 
+    cloudsMap, 
+    nightMap ] = useLoader(
     TextureLoader, 
     [
       EarthDayMap, 
@@ -24,18 +81,66 @@ const Earth = (props) => {
   );
 
   const earthRef = useRef();
+  const cameraRef = useRef();
+  const [cameraPos, setCameraPos] = useState(null);
+  const [current, setCurrent] = useState(null);
 
-  const [clicked, setClicked] = useState(null);
-
-  useFrame(({clock}) => {
+  useFrame(({clock, camera}) => {
     const elapsedTime = clock.getElapsedTime();
-    if (clicked){
+
+    //Set Camera Position
+    if (cameraPos){
+      console.log("Camera set");
+      const {cx, cy, cz} = cameraPos;
+      const vec = new THREE.Vector3(cx , cy , cz);
+      vec.setLength(5);
+      camera.position.lerp(vec, 0.02);
+
       earthRef.current.rotation.y = 0;
-    } else {
+    }
+    else {
       earthRef.current.rotation.y = elapsedTime / 6;
     }
-    
   })
+
+  const nextContinent = () => {
+    if (current.id===6){
+      setCurrent(continents[0]);
+      const {lat, long} = continents[0];
+      //Cacularing the position with lat and long
+      const xPos = 1.15 * Math.cos(lat) * Math.cos(long);
+      const yPos = 1.15 * Math.cos(lat) * Math.sin(long);
+      const zPos = 1.15 * Math.sin(lat);
+      setCameraPos({cx : xPos, cy : yPos, cz : zPos});
+    } else {
+      setCurrent(continents[current.id+1]);
+      const {lat, long} = continents[current.id+1];
+      //Cacularing the position with lat and long
+      const xPos = 1.15 * Math.cos(lat) * Math.cos(long);
+      const yPos = 1.15 * Math.cos(lat) * Math.sin(long);
+      const zPos = 1.15 * Math.sin(lat);
+      setCameraPos({cx : xPos, cy : yPos, cz : zPos});
+    }
+  }
+  const prevContinent = () => {
+    if (current.id===0){
+      setCurrent(continents[6]);
+      const {lat, long} = continents[6];
+      //Cacularing the position with lat and long
+      const xPos = 1.15 * Math.cos(lat) * Math.cos(long);
+      const yPos = 1.15 * Math.cos(lat) * Math.sin(long);
+      const zPos = 1.15 * Math.sin(lat);
+      setCameraPos({cx : xPos, cy : yPos, cz : zPos});
+    } else {
+      setCurrent(continents[current.id-1]);
+      const {lat, long} = continents[current.id-1];
+      //Cacularing the position with lat and long
+      const xPos = 1.15 * Math.cos(lat) * Math.cos(long);
+      const yPos = 1.15 * Math.cos(lat) * Math.sin(long);
+      const zPos = 1.15 * Math.sin(lat);
+      setCameraPos({cx : xPos, cy : yPos, cz : zPos});
+    }
+  }
 
   return (
     <>
@@ -59,26 +164,29 @@ const Earth = (props) => {
             metalness={0.4} 
             roughness={0.7}
           />
-          <OrbitControls 
-            enableZoom={true} 
-            enablePan={true} 
-            enableRotate={true}
-            zoomSpeed={0.5}
-            panSpeed={0.5}
-            rotateSpeed={0.4}
-          />
         </mesh>
-        {continents.map(c => (
-          <Marker 
-            key={c.name}
-            name={c.name}
-            lat={c.lat}
-            long={c.long}
-            setClicked={setClicked}
-          />
-        ))}
+        <Markers 
+          continents={continents}
+          setCameraPos={setCameraPos}
+          current={current}
+          setCurrent={setCurrent}
+        />
+        <OrbitControls 
+          ref={cameraRef} 
+          enableZoom={true} 
+          enablePan={true} 
+          enableRotate={true}
+          zoomSpeed={0.5}
+          panSpeed={0.5}
+          rotateSpeed={0.4}
+        />
+        <polarGridHelper />
       </group>
-      
+      <Description 
+        current={current}
+        nextContinent={nextContinent}
+        prevContinent={prevContinent}
+      />
     </>
   )
 }

@@ -16,7 +16,7 @@ const LoginPage = () => {
       await supabase.auth.getUser().then((value) => {
         if (value.data?.user){
           console.log(value.data.user);
-          navigate(`/${value.data.user.id}/game`);
+          navigate(`/${value.data.user.id}/earth`);
         }
       })
     };
