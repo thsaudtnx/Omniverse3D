@@ -123,7 +123,8 @@ const Solar = () => {
 
     return(
         <>
-            {planets.map(p => <Planet
+            {planets.map((p, index) => <Planet
+                key={index}
                 texture={p.texture}
                 size = {p.size}
                 position={p.position}

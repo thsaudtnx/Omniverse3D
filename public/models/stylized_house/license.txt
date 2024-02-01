@@ -1,0 +1,11 @@
+Model Information:
+* title:	Stylized House
+* source:	https://sketchfab.com/3d-models/stylized-house-7a709f33bf724062b0caf308c0c81e71
+* author:	WillowBoxArt (https://sketchfab.com/willowboxart)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Stylized House" (https://sketchfab.com/3d-models/stylized-house-7a709f33bf724062b0caf308c0c81e71) by WillowBoxArt (https://sketchfab.com/willowboxart) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

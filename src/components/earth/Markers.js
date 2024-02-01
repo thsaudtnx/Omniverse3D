@@ -4,8 +4,9 @@ const Markers = ({continents, setCameraPos, current, setCurrent}) => {
 
   return (
     <>
-      {continents.map(continent => (
-          <Marker 
+      {continents.map((continent, index) => (
+          <Marker
+            key={index} 
             continent={continent}
             current={current}
             setCurrent={setCurrent}

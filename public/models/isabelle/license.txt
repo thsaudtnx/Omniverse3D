@@ -1,0 +1,11 @@
+Model Information:
+* title:	Isabelle
+* source:	https://sketchfab.com/3d-models/isabelle-a0d601d684d940f5bb4f71f42c02f0b6
+* author:	GuluBuddy (https://sketchfab.com/GuluBuddy)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Isabelle" (https://sketchfab.com/3d-models/isabelle-a0d601d684d940f5bb4f71f42c02f0b6) by GuluBuddy (https://sketchfab.com/GuluBuddy) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

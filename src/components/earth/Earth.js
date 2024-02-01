@@ -10,58 +10,9 @@ import { Html, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import Markers from './Markers';
 import Description from './Description';
-
-const continents = [
-  {
-    id : 0,
-    name : 'Asia',
-    lat : 99.5,
-    long : 33,
-    description : 'This is Asia!',
-  },
-  {
-    id : 1,
-    name : 'Africa',
-    lat : 37.4,
-    long : 19.1,
-    description : 'This is Africa!',
-  },
-  {
-    id : 2,
-    name : 'Antartica',
-    lat : 0,
-    long : -89.5,
-    description : 'This is Antartica!',
-  },
-  {
-    id : 3,
-    name : 'South America',
-    lat : 14.8048,
-    long : 59.1625,
-    description : 'This is South America!',
-  },
-  {
-    id : 4,
-    name : 'North America',
-    lat : 70,
-    long : 20.6,
-    description : 'This is North America!',
-  },
-  {
-    id : 5,
-    name : 'Europe',
-    lat : 53.8,
-    long : 10.5,
-    description : 'This is Europe!',
-  },
-  {
-    id : 6,
-    name : 'Oceania',
-    lat : 37,
-    long : 154.5,
-    description : 'This is Oceania!',
-  },
-];
+import Models from './Models';
+import Gallery from './Gallery';
+import { continents } from './Continents';
 
 const Earth = (props) => {
   const [
@@ -171,6 +122,7 @@ const Earth = (props) => {
           current={current}
           setCurrent={setCurrent}
         />
+        <Models />
         <OrbitControls 
           ref={cameraRef} 
           enableZoom={true} 
@@ -182,6 +134,9 @@ const Earth = (props) => {
         />
         <polarGridHelper />
       </group>
+      {current && <Gallery 
+        current={current}
+      />}
       <Description 
         current={current}
         nextContinent={nextContinent}

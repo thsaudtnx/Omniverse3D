@@ -1,0 +1,666 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 205,
+      "max": [
+        108.5838623046875,
+        200.14219665527344,
+        44.371429443359375
+      ],
+      "min": [
+        -110.1982421875,
+        49.87018585205078,
+        -135.88333129882813
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 2460,
+      "componentType": 5126,
+      "count": 205,
+      "max": [
+        1.0,
+        1.9241674920067453e-07,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -2.865151600417448e-07,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 205,
+      "max": [
+        1.0,
+        5.932184194534784e-06,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0998725530602521e-13,
+        -1.0530968211241998e-05,
+        -1.0,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 205,
+      "max": [
+        1.0,
+        0.9267813563346863
+      ],
+      "min": [
+        0.0,
+        0.0
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 519,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 4920,
+      "componentType": 5126,
+      "count": 4589,
+      "max": [
+        161.684326171875,
+        272.52630615234375,
+        161.6842803955078
+      ],
+      "min": [
+        -161.684326171875,
+        -1.8438215255737305,
+        -161.6842803955078
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 59988,
+      "componentType": 5126,
+      "count": 4589,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 3280,
+      "componentType": 5126,
+      "count": 4589,
+      "max": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 1640,
+      "componentType": 5126,
+      "count": 4589,
+      "max": [
+        0.9975513815879822,
+        0.998046875
+      ],
+      "min": [
+        0.001953125,
+        0.001953125
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 2076,
+      "componentType": 5125,
+      "count": 13332,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 115056,
+      "componentType": 5126,
+      "count": 23448,
+      "max": [
+        93.30542755126953,
+        264.7103576660156,
+        24.33268165588379
+      ],
+      "min": [
+        -114.31999969482422,
+        204.31578063964844,
+        -133.5028839111328
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 396432,
+      "componentType": 5126,
+      "count": 23448,
+      "max": [
+        1.0,
+        0.948696494102478,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -0.6753442883491516,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 76704,
+      "componentType": 5126,
+      "count": 23448,
+      "max": [
+        1.0,
+        0.9785379767417908,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -0.8956600427627563,
+        -0.999779462814331,
+        -0.9999939799308777,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 38352,
+      "componentType": 5126,
+      "count": 23448,
+      "max": [
+        0.998046875,
+        0.9960161447525024
+      ],
+      "min": [
+        0.001953125,
+        0.001953125
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 55404,
+      "componentType": 5125,
+      "count": 76392,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 677808,
+      "componentType": 5126,
+      "count": 9622,
+      "max": [
+        118.5584716796875,
+        205.28634643554688,
+        54.34613037109375
+      ],
+      "min": [
+        -120.1729736328125,
+        24.82620620727539,
+        -145.8580322265625
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 793272,
+      "componentType": 5126,
+      "count": 9622,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 451872,
+      "componentType": 5126,
+      "count": 9622,
+      "max": [
+        1.0,
+        0.9999977350234985,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -0.9999993443489075,
+        -1.0,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 225936,
+      "componentType": 5126,
+      "count": 9622,
+      "max": [
+        0.998046875,
+        0.9954822063446045
+      ],
+      "min": [
+        0.001953125,
+        0.001953125
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 360972,
+      "componentType": 5125,
+      "count": 31272,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "WillowBoxArt (https://sketchfab.com/willowboxart)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/stylized-house-7a709f33bf724062b0caf308c0c81e71",
+      "title": "Stylized House"
+    },
+    "generator": "Sketchfab-15.68.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 486060,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 302912,
+      "byteOffset": 486060,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 908736,
+      "byteOffset": 788972,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 605824,
+      "byteOffset": 1697708,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 2303532,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/M_Glass_baseColor.png"
+    },
+    {
+      "uri": "textures/M_Glass_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/M_Glass_normal.png"
+    },
+    {
+      "uri": "textures/M_house_baseColor.png"
+    },
+    {
+      "uri": "textures/M_house_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/M_house_normal.png"
+    },
+    {
+      "uri": "textures/M_Roof_baseColor.png"
+    },
+    {
+      "uri": "textures/M_Roof_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/M_Roof_normal.png"
+    },
+    {
+      "uri": "textures/M_Window_Frame_baseColor.png"
+    },
+    {
+      "uri": "textures/M_Window_Frame_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/M_Window_Frame_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "M_Glass",
+      "normalTexture": {
+        "index": 2
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.0,
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "M_house",
+      "normalTexture": {
+        "index": 5
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 3
+        },
+        "metallicFactor": 0.0,
+        "metallicRoughnessTexture": {
+          "index": 4
+        }
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "M_Roof",
+      "normalTexture": {
+        "index": 8
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 6
+        },
+        "metallicFactor": 0.0,
+        "metallicRoughnessTexture": {
+          "index": 7
+        }
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "M_Window_Frame",
+      "normalTexture": {
+        "index": 11
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 9
+        },
+        "metallicFactor": 0.0,
+        "metallicRoughnessTexture": {
+          "index": 10
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "SM_Stylized_House_M_Glass_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "SM_Stylized_House_M_house_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TANGENT": 7,
+            "TEXCOORD_0": 8
+          },
+          "indices": 9,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "SM_Stylized_House_M_Roof_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 11,
+            "POSITION": 10,
+            "TANGENT": 12,
+            "TEXCOORD_0": 13
+          },
+          "indices": 14,
+          "material": 2,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "SM_Stylized_House_M_Window_Frame_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 16,
+            "POSITION": 15,
+            "TANGENT": 17,
+            "TEXCOORD_0": 18
+          },
+          "indices": 19,
+          "material": 3,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.009999999776482582,
+        0.0,
+        0.0,
+        -0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "SM_Stylized_House.fbx"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "name": "SM_Stylized_House"
+    },
+    {
+      "mesh": 0,
+      "name": "SM_Stylized_House_M_Glass_0"
+    },
+    {
+      "mesh": 1,
+      "name": "SM_Stylized_House_M_house_0"
+    },
+    {
+      "mesh": 2,
+      "name": "SM_Stylized_House_M_Roof_0"
+    },
+    {
+      "mesh": 3,
+      "name": "SM_Stylized_House_M_Window_Frame_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    },
+    {
+      "sampler": 0,
+      "source": 4
+    },
+    {
+      "sampler": 0,
+      "source": 5
+    },
+    {
+      "sampler": 0,
+      "source": 6
+    },
+    {
+      "sampler": 0,
+      "source": 7
+    },
+    {
+      "sampler": 0,
+      "source": 8
+    },
+    {
+      "sampler": 0,
+      "source": 9
+    },
+    {
+      "sampler": 0,
+      "source": 10
+    },
+    {
+      "sampler": 0,
+      "source": 11
+    }
+  ]
+}
