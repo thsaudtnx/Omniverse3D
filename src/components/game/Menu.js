@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router";
-import { useStore } from "../hooks/useStore";
-import { supabase } from "../modules/supabase";
+import { useStore } from "../../hooks/useStore";
+import { supabase } from "../../modules/supabase";
+import styles from './menu.module.css';
 
 export const Menu = () => {
 	const [saveWorld, resetWorld] = useStore((state) => [state.saveWorld, state.resetWorld]);
@@ -12,7 +13,7 @@ export const Menu = () => {
   }
 
 	return (
-		<div className="menu absolute">
+		<div className={styles.container}>
 			<button
 				onClick={() => saveWorld()}
 			>Save</button>

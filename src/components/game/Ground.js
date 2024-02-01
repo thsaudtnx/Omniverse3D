@@ -1,6 +1,6 @@
 import { usePlane } from "@react-three/cannon" //평면을 구성하기 위한 기능
-import { groundTexture } from "../images/textures"
-import { useStore } from '../hooks/useStore'
+import { groundTexture } from "../../assets/game/textures"
+import { useStore } from '../../hooks/useStore'
 
 export const Ground = () => {
 	//usePlane을 통해 평면을 구성하고 ref을 통해 접근한다

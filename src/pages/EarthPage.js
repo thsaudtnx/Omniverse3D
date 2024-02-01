@@ -1,16 +1,10 @@
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useEffect } from "react";
-import styled from "styled-components";
 import { Stars } from "@react-three/drei";
-import Solar from "../components/Solar";
+import Solar from "../components/earth/Solar";
 import { useNavigate, useParams } from "react-router";
 import { supabase } from "../modules/supabase";
-
-const CanvasContainer = styled.div`
-  width : 100vw;
-  height : 100vh;
-  background-color : #010718;
-`;
+import styles from './earth.module.css';
 
 const EarthPage = () => {
 
@@ -30,7 +24,7 @@ const EarthPage = () => {
   }, [navigate, params.userId])
 
   return (
-    <CanvasContainer>
+    <div className={styles.container}>
       <Canvas>
         <Suspense fallback={null}>
           <ambientLight intensity={0.8}/>
@@ -50,7 +44,7 @@ const EarthPage = () => {
           <Solar />
         </Suspense>
       </Canvas>
-    </CanvasContainer>
+    </div>
   )
 }
 

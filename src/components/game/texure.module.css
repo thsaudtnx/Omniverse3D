@@ -1,0 +1,11 @@
+.container{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform: scale(5);
+
+}
+
+.active {
+  border: 2px solid red;
+}

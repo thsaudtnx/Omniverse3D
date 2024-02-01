@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import EarthDayMap from '../assets/8k_earth_daymap.jpg';
-import EarthNormalMap from '../assets/8k_earth_normal_map.jpg';
-import EarthCloudsMap from '../assets/8k_earth_clouds.jpg';
-import EarthNightMap from '../assets/8k_earth_nightmap.jpg';
-import EarthSpecularMap from '../assets/8k_earth_specular_map.jpg';
+import EarthDayMap from '../../assets/earth/8k_earth_daymap.jpg';
+import EarthNormalMap from '../../assets/earth/8k_earth_normal_map.jpg';
+import EarthCloudsMap from '../../assets/earth/8k_earth_clouds.jpg';
+import EarthNightMap from '../../assets/earth/8k_earth_nightmap.jpg';
+import EarthSpecularMap from '../../assets/earth/8k_earth_specular_map.jpg';
 import { TextureLoader } from 'three';
 import { useFrame, useLoader } from '@react-three/fiber';
 import { Html, OrbitControls } from '@react-three/drei';

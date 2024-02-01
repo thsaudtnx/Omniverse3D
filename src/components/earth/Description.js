@@ -1,6 +1,7 @@
 import { Html } from "@react-three/drei";
 import { useNavigate, useParams } from "react-router";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight} from "react-icons/fa";
+import styles from './description.module.css';
 
 const Description = ({current, nextContinent, prevContinent}) => {
 
@@ -9,38 +10,16 @@ const Description = ({current, nextContinent, prevContinent}) => {
 
   return (
     <Html position={[0, 0, 0]}>
-      <div style={{
-        position : 'absolute',
-        right : -670,
-        top : -250,
-        padding : 20,
-        background : '#696969',
-        borderRadius : 5,
-        color : 'white',
-        fontWeight : 'bold',
-        width : 350,
-      }}>
-        <div style={{
-          display : 'flex',
-          flexDirection : 'row',
-          justifyContent : 'space-between'
-        }}>
+      <div className={styles.container}>
+        <div className={styles.header}>
           {current && <FaArrowAltCircleLeft 
             onClick={() => prevContinent()}
-            style={{
-              width : 25,
-              height : 25,
-              cursor : 'pointer',
-            }}
+            className={styles.arrow}
           />}
           <h2>{current ? current.name : 'Hello World'}</h2>
           {current &&  <FaArrowAltCircleRight 
             onClick={() => nextContinent()}
-            style={{
-              width : 25,
-              height : 25,
-              cursor : 'pointer',
-            }}
+            className={styles.arrow}
           />}
         </div>
         <div>
@@ -52,10 +31,7 @@ const Description = ({current, nextContinent, prevContinent}) => {
           {current && current.images}
         </div>
         {current && <button
-          style={{
-            padding : "2px 5px",
-            cursor : 'pointer',
-          }} 
+          className={styles.button}
           onClick={() => {
             navigate(`/${params.userId}/game`);
         }}>Start</button>}

@@ -1,0 +1,13 @@
+.container{
+  width: 400px;
+  background-color : white;
+  padding : 40px;
+  border-radius : 10px;
+}
+
+.title{
+  font-size: 18px;
+  font-weight: bold;
+  text-align : center;
+  color : gray;
+}

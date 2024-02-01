@@ -20,7 +20,6 @@
     "react-icons": "^4.12.0",
     "react-router-dom": "^6.18.0",
     "react-scripts": "5.0.1",
-    "styled-components": "^6.1.1",
     "three": "^0.158.0",
     "uuid": "^9.0.1",
     "vanta": "^0.5.24",
