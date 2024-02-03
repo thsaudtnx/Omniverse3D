@@ -15,14 +15,23 @@ export const Menu = () => {
 	return (
 		<div className={styles.container}>
 			<button
+				className={styles.button}
 				onClick={() => saveWorld()}
 			>Save</button>
 			<button
+				className={styles.button}
 				onClick={() => resetWorld()}
 			>Reset</button>
 			<button
+				className={styles.button}
 				onClick={() => signOutUser()}
 			>Logout</button>
+			<button
+				className={styles.button}
+				onClick={() => {}}
+			>
+				Change Unit
+			</button>
 		</div>
 	)
 }

@@ -3,6 +3,7 @@ import { Isabelle } from '../../assets/models/Isabelle';
 import { CatHouse } from '../../assets/models/CatHouse';
 import { StylizedHouse } from '../../assets/models/StylizedHouse';
 import { TreeHouse } from '../../assets/models/TreeHouse';
+import { Airplane } from '../../assets/models/Airplane';
 
 const Models = () => {
   return (
@@ -25,6 +26,11 @@ const Models = () => {
         scale={0.1}
         rotation={[Math.PI, Math.PI/2, Math.PI/2]}
         position={[0, 0, -1.01]}
+      />
+      <Airplane 
+        scale={0.2}
+        rotation={[Math.PI/2, Math.PI, Math.PI/2]}
+        position={[1.2, 0, 0]}
       />
     </>
   );

@@ -1,20 +1,16 @@
 import { useBox } from "@react-three/cannon"
 import { useState } from "react"
-import { useStore } from "../../hooks/useStore"
 import * as textures from "../../assets/game/textures"
 
 
-export const Cube = ({ position, texture }) => {
+const Cube = ({ position, texture, handleAddCube, handleRemoveCube }) => {
 	const [isHovered, setIsHovered] = useState(false)
 	const [ref] = useBox(() => ({
 		type: 'Static',
 		position
 	}))
-	const [addCube, removeCube] = useStore((state) => [state.addCube, state.removeCube])
 
 	const activeTexture = textures[texture + 'Texture']
-
-
 
 	return (
 		<mesh
@@ -32,31 +28,50 @@ export const Cube = ({ position, texture }) => {
 				const { x, y, z } = ref.current.position
 				//click on block to delete
 				if (e.button === 0) {
-					removeCube(x, y, z)
+					//여기 수정 필요
+					handleRemoveCube(position);
 					return
 				}
 				else if (clickedFace === 0) {
-					addCube(x + 1, y, z)
+					handleAddCube({
+						texture: texture, 
+						position : [x + 1, y, z],
+					});
 					return
 				}
 				else if (clickedFace === 1) {
-					addCube(x - 1, y, z)
+					handleAddCube({
+						texture : texture, 
+						position: [x - 1, y, z],
+					});
 					return
 				}
 				else if (clickedFace === 2) {
-					addCube(x, y + 1, z)
+					handleAddCube({
+						texture: texture, 
+						position: [x, y + 1, z],
+					});
 					return
 				}
 				else if (clickedFace === 3) {
-					addCube(x, y - 1, z)
+					handleAddCube({
+						texture: texture, 
+						position: [x, y - 1, z]
+					});
 					return
 				}
 				else if (clickedFace === 4) {
-					addCube(x, y, z + 1)
+					handleAddCube({
+						texture: texture, 
+						position: [x, y, z + 1],
+					});
 					return
 				}
 				else if (clickedFace === 5) {
-					addCube(x, y, z - 1)
+					handleAddCube({
+						texture: texture, 
+						position: [x, y, z - 1],
+					});
 					return
 				}
 			}}
@@ -72,3 +87,5 @@ export const Cube = ({ position, texture }) => {
 		</mesh>
 	)
 }
+
+export default Cube;

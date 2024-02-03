@@ -1,5 +1,29 @@
 .container{
   position : absolute;
-  top: 0px;
-  left: 10px;
+  top: 15px;
+  left: 15px;
+  display : flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.button{
+  border : 1px solid gray;
+  color : gray;
+  border-radius: 10px;
+  padding-left : 20px;
+  padding-right : 20px;
+  padding-top : 10px;
+  padding-bottom : 10px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.button:hover{
+  cursor: pointer;
+  color: black;
+  border: 1px solid black;
+
 }

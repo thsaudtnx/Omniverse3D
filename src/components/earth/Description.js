@@ -36,7 +36,8 @@ const Description = ({current, nextContinent, prevContinent}) => {
             {current && <Map current={current}/>}
           </div>
           <div>
-            Do you want to play the world?
+            {current ? "Do you want to play the world?" : 
+            "Welcome to Omniverse 3D. This app is...."}
           </div>
         </div>
         <div className={styles.buttons}>
