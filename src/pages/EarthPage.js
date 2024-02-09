@@ -3,7 +3,7 @@ import { Suspense, useEffect } from "react";
 import { Stars } from "@react-three/drei";
 import Solar from "../components/earth/Solar";
 import { useNavigate, useParams } from "react-router";
-import { supabase } from "../modules/supabase";
+import { supabase } from "../lib/supabase";
 import styles from './earth.module.css';
 
 const EarthPage = () => {

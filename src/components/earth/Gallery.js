@@ -38,11 +38,10 @@ const Gallery = ({current}) => {
               pagination={{ clickable: true }}
             >
               {images.map((index, image) => (
-                <SwiperSlide>
+                <SwiperSlide key={index}>
                   <div className={styles.imageContainer}>
                     <img 
                       className={styles.image}
-                      key={index}
                       src="https://placehold.co/150x150"
                       alt={image}
                     />

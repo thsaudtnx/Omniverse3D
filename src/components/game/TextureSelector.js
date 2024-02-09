@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { useStore } from "../../hooks/useStore"
 import { useKeyboard } from "../../hooks/useKeyboard"
 import { dirtImg, grassImg, glassImg, logImg, woodImg } from '../../assets/game/images'
 import styles from './texure.module.css';
+import { useStore } from '../../hooks/useStore';
 
 const images = {
 	dirt: dirtImg,

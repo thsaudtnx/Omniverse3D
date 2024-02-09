@@ -1,0 +1,8 @@
+Model Information:
+* title:	Freddy Fazbear Minecraft
+* source:	https://sketchfab.com/3d-models/freddy-fazbear-minecraft-c5e32c02c2434a9a8a4413aa94deacfd
+* author:	Konek (https://sketchfab.com/K0nek)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

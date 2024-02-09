@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LoginPage />}/>
-        <Route path="/:userId/game" element={<GamePage />}/>
+        <Route path="/:userId/:continentId" element={<GamePage />}/>
         <Route path="/:userId/earth" element={<EarthPage />} />
       </Routes>
     </BrowserRouter>

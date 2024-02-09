@@ -4,14 +4,14 @@ import { Canvas } from '@react-three/fiber';
 import { Ground } from '../components/game/Ground';
 import { Player } from '../components/game/Player'
 import { FPV } from '../components/game/FPV'
-import Cubes from '../components/game/Cubes'
+import { Cubes } from '../components/game/Cubes'
 import { TextureSelector } from '../components/game/TextureSelector';
-import { Menu } from '../components/game/Menu';
-import { supabase } from '../modules/supabase';
+import { supabase } from '../lib/supabase';
 import { useNavigate, useParams } from 'react-router';
 import { useEffect } from 'react';
 import Cursor from '../components/game/Cursor';
-import { Door } from '../assets/models/Door';
+import { NPC } from '../assets/models/NPC';
+import { Menu } from '../components/game/Menu';
 
 const GamePage = () => {
   const navigate = useNavigate();
@@ -38,9 +38,14 @@ const GamePage = () => {
         <Physics>
           <Player />
           <Cubes />
-          <Door 
-            scale={0.02}
-            position={[0, -0.5, -0.5]}
+          <NPC 
+            scale={0.5}
+            position={[0, -0.5, 0.5]}
+            rotation={[0, Math.PI/2, 0]}
+            onClick={(e) => {
+              e.stopPropagation();
+              console.log("Clicked NPC");
+            }}
           />
           <Ground />
         </Physics>

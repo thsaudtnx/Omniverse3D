@@ -2,7 +2,7 @@ import { Html } from "@react-three/drei";
 import { useNavigate, useParams } from "react-router";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight} from "react-icons/fa";
 import styles from './description.module.css';
-import { supabase } from "../../modules/supabase";
+import { supabase } from "../../lib/supabase";
 import Map from "./Map";
 
 const Description = ({current, nextContinent, prevContinent}) => {
@@ -44,7 +44,7 @@ const Description = ({current, nextContinent, prevContinent}) => {
           {current && <button
             className={styles.button}
             onClick={() => {
-              navigate(`/${params.userId}/game`);
+              navigate(`/${params.userId}/${current.id}`);
           }}>Start</button>}
           {current && <button
             className={styles.button}

@@ -4,12 +4,12 @@ import React, { useRef, useState } from "react";
 const Marker = ({continent, setCameraPos, current, setCurrent}) => {
 
   const [isHovered, setIsHovered] = useState(false);
-  const {name, lat, long} = continent;
+  const {name, latitude, longitude} = continent;
 
   //Cacularing the position with lat and long
-  const xPos = 1.15 * Math.cos(lat) * Math.cos(long);
-  const yPos = 1.15 * Math.cos(lat) * Math.sin(long)
-  const zPos = 1.15 * Math.sin(lat)
+  const xPos = 1.15 * Math.cos(latitude) * Math.cos(longitude);
+  const yPos = 1.15 * Math.cos(latitude) * Math.sin(longitude)
+  const zPos = 1.15 * Math.sin(latitude)
   
   return (
     <>

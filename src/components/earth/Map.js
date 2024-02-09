@@ -12,15 +12,15 @@ const Map = ({current}) => {
           height: '350px'
         }}
         center={{
-          lat: current ? current.lat : 0, 
-          lng: current ? current.long : 0
+          lat: current ? current.latitude : 0, 
+          lng: current ? current.longitude : 0
         }}
         zoom={1.5}
       >
         <Marker 
           position={{ 
-            lat: current ? current.lat : 0, 
-            lng: current ? current.long : 0, 
+            lat: current ? current.latitude : 0, 
+            lng: current ? current.longitude : 0, 
           }} 
           label={{
             color : 'white',

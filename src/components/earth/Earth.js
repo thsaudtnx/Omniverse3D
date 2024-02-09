@@ -12,7 +12,7 @@ import Markers from './Markers';
 import Description from './Description';
 import Models from './Models';
 import Gallery from './Gallery';
-import { continents } from './Continents';
+import { useStore } from '../../hooks/useStore';
 
 const Earth = (props) => {
   const [
@@ -35,13 +35,18 @@ const Earth = (props) => {
   const cameraRef = useRef();
   const [cameraPos, setCameraPos] = useState(null);
   const [current, setCurrent] = useState(null);
+  const [continents, getContinents] = useStore((state) => [state.continents, state.getContinents])
+
+  useEffect(() => {
+    console.log('Load continents from database')
+    getContinents()
+  }, [getContinents])
 
   useFrame(({clock, camera}) => {
     const elapsedTime = clock.getElapsedTime();
 
     //Set Camera Position
     if (cameraPos){
-      console.log("Camera set");
       const {cx, cy, cz} = cameraPos;
       const vec = new THREE.Vector3(cx , cy , cz);
       vec.setLength(5);
@@ -55,42 +60,23 @@ const Earth = (props) => {
   })
 
   const nextContinent = () => {
-    if (current.id===6){
-      setCurrent(continents[0]);
-      const {lat, long} = continents[0];
-      //Cacularing the position with lat and long
-      const xPos = 1.15 * Math.cos(lat) * Math.cos(long);
-      const yPos = 1.15 * Math.cos(lat) * Math.sin(long);
-      const zPos = 1.15 * Math.sin(lat);
-      setCameraPos({cx : xPos, cy : yPos, cz : zPos});
-    } else {
-      setCurrent(continents[current.id+1]);
-      const {lat, long} = continents[current.id+1];
-      //Cacularing the position with lat and long
-      const xPos = 1.15 * Math.cos(lat) * Math.cos(long);
-      const yPos = 1.15 * Math.cos(lat) * Math.sin(long);
-      const zPos = 1.15 * Math.sin(lat);
-      setCameraPos({cx : xPos, cy : yPos, cz : zPos});
-    }
+    const idx = current.id === 6 ? 0 : current.id + 1
+    setCurrent(continents[idx]);
+    const {latitude, longitude} = continents[idx];
+    const xPos = 1.15 * Math.cos(latitude) * Math.cos(longitude);
+    const yPos = 1.15 * Math.cos(latitude) * Math.sin(longitude);
+    const zPos = 1.15 * Math.sin(latitude);
+    setCameraPos({cx : xPos, cy : yPos, cz : zPos});
   }
+
   const prevContinent = () => {
-    if (current.id===0){
-      setCurrent(continents[6]);
-      const {lat, long} = continents[6];
-      //Cacularing the position with lat and long
-      const xPos = 1.15 * Math.cos(lat) * Math.cos(long);
-      const yPos = 1.15 * Math.cos(lat) * Math.sin(long);
-      const zPos = 1.15 * Math.sin(lat);
-      setCameraPos({cx : xPos, cy : yPos, cz : zPos});
-    } else {
-      setCurrent(continents[current.id-1]);
-      const {lat, long} = continents[current.id-1];
-      //Cacularing the position with lat and long
-      const xPos = 1.15 * Math.cos(lat) * Math.cos(long);
-      const yPos = 1.15 * Math.cos(lat) * Math.sin(long);
-      const zPos = 1.15 * Math.sin(lat);
-      setCameraPos({cx : xPos, cy : yPos, cz : zPos});
-    }
+    const idx = current.id === 0 ? 6 : current.id-1;
+    setCurrent(continents[idx]);
+    const {latitude, longitude} = continents[idx];
+    const xPos = 1.15 * Math.cos(latitude) * Math.cos(longitude);
+    const yPos = 1.15 * Math.cos(latitude) * Math.sin(longitude);
+    const zPos = 1.15 * Math.sin(latitude);
+    setCameraPos({cx : xPos, cy : yPos, cz : zPos});
   }
 
   return (

@@ -1,14 +1,16 @@
 import { useBox } from "@react-three/cannon"
 import { useState } from "react"
 import * as textures from "../../assets/game/textures"
+import { useStore } from "../../hooks/useStore"
 
 
-const Cube = ({ position, texture, handleAddCube, handleRemoveCube }) => {
+export const Cube = ({ position, texture, userId, continentId }) => {
 	const [isHovered, setIsHovered] = useState(false)
 	const [ref] = useBox(() => ({
 		type: 'Static',
 		position
 	}))
+	const [addCube, removeCube] = useStore((state) => [state.addCube, state.removeCube])
 
 	const activeTexture = textures[texture + 'Texture']
 
@@ -26,52 +28,33 @@ const Cube = ({ position, texture, handleAddCube, handleRemoveCube }) => {
 				e.stopPropagation()
 				const clickedFace = Math.floor(e.faceIndex / 2)
 				const { x, y, z } = ref.current.position
-				//click on block to delete
 				if (e.button === 0) {
-					//여기 수정 필요
-					handleRemoveCube(position);
+					removeCube(x, y, z)
+					console.log('Deleted!')
 					return
 				}
 				else if (clickedFace === 0) {
-					handleAddCube({
-						texture: texture, 
-						position : [x + 1, y, z],
-					});
+					addCube(x + 1, y, z, userId, continentId)
 					return
 				}
 				else if (clickedFace === 1) {
-					handleAddCube({
-						texture : texture, 
-						position: [x - 1, y, z],
-					});
+					addCube(x - 1, y, z, userId, continentId)
 					return
 				}
 				else if (clickedFace === 2) {
-					handleAddCube({
-						texture: texture, 
-						position: [x, y + 1, z],
-					});
+					addCube(x, y + 1, z, userId, continentId)
 					return
 				}
 				else if (clickedFace === 3) {
-					handleAddCube({
-						texture: texture, 
-						position: [x, y - 1, z]
-					});
+					addCube(x, y - 1, z, userId, continentId)
 					return
 				}
 				else if (clickedFace === 4) {
-					handleAddCube({
-						texture: texture, 
-						position: [x, y, z + 1],
-					});
+					addCube(x, y, z + 1, userId, continentId)
 					return
 				}
 				else if (clickedFace === 5) {
-					handleAddCube({
-						texture: texture, 
-						position: [x, y, z - 1],
-					});
+					addCube(x, y, z - 1, userId, continentId)
 					return
 				}
 			}}
@@ -87,5 +70,3 @@ const Cube = ({ position, texture, handleAddCube, handleRemoveCube }) => {
 		</mesh>
 	)
 }
-
-export default Cube;

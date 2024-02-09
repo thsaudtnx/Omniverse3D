@@ -2,7 +2,7 @@ import GLOBE from 'vanta/dist/vanta.globe.min';
 import * as THREE from "three";
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
-import { supabase } from '../modules/supabase';
+import { supabase } from '../lib/supabase';
 import styles from './login.module.css';
 import Login from '../components/login/Login';
 

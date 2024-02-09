@@ -1,33 +1,33 @@
-import Cube from './Cube'
-import {useSelector, useDispatch} from 'react-redux';
-import { addCube, removeCube } from '../../modules/cubeSlice';
-import { useCallback } from 'react';
+import { useEffect } from 'react'
+import { useStore } from '../../hooks/useStore'
+import { Cube } from './Cube'
+import { useParams } from 'react-router';
 
-const Cubes = () => {
-	const cubes = useSelector((state) => state.cubes)
-	const dispatch = useDispatch();
-	console.log(cubes);
-	const handleAddCube = useCallback((newCube) => {
-    dispatch(addCube(newCube))
-  }, [dispatch])
+export const Cubes = () => {
+	const {userId, continentId} = useParams();
+	
+	const [cubes, getCubes] = useStore((state) => [
+		state.cubes,
+		state.getCubes,
+	])
 
-  const handleRemoveCube = useCallback((position) => {
-    dispatch(removeCube(position))
-  }, [dispatch]);
+	useEffect(() => {
+		console.log('Load Cubes from Database')
+		getCubes(userId, continentId);
+	}, [])
+	
 
-	return (
-		<>
-			{cubes?.map((cube, index) => (
-				<Cube 
-					key={index} 
-					position={cube.position} 
-					texture={cube.texture}
-					handleAddCube={handleAddCube}
-					handleRemoveCube={handleRemoveCube}
-				/>
-			))}
-		</>
-	)
+	console.log(cubes)
+
+	return cubes.map(({ id, position, texture }) => {
+		return (
+			<Cube  
+				key={id}
+				position={position} 
+				texture={texture} 
+				userId={userId} 
+				continentId={continentId}
+			/>
+		)
+	})
 }
-
-export default Cubes;
