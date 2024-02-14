@@ -1,4 +1,5 @@
 import { supabase } from '../lib/supabase'
+import axios from 'axios';
 
 export const getContinents = async () => {
   let { data: continents, error } = await supabase
@@ -72,3 +73,25 @@ export const storeCubes = async (cubes, user_id, continent_id) => {
     }
   }
 }
+
+export const getModels = async () => {
+  const url =  process.env.REACT_APP_OMNISPACE_URL;
+  const token = process.env.REACT_APP_OMNISPACE_TOKEN;
+
+  try{
+    const response = await axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+      params : {
+        index: 0,
+        modelKey: '',
+        limit: 100
+      }
+    });
+    return response.data.models
+  } catch(error){
+    console.error(error)
+  }
+}
+

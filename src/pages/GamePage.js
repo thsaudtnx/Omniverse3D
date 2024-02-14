@@ -10,8 +10,9 @@ import { supabase } from '../lib/supabase';
 import { useNavigate, useParams } from 'react-router';
 import { useEffect } from 'react';
 import Cursor from '../components/game/Cursor';
-import { NPC } from '../assets/models/NPC';
 import { Menu } from '../components/game/Menu';
+import { Npc } from '../components/game/Npc';
+import Models from '../components/game/Models';
 
 const GamePage = () => {
   const navigate = useNavigate();
@@ -38,15 +39,8 @@ const GamePage = () => {
         <Physics>
           <Player />
           <Cubes />
-          <NPC 
-            scale={0.5}
-            position={[0, -0.5, 0.5]}
-            rotation={[0, Math.PI/2, 0]}
-            onClick={(e) => {
-              e.stopPropagation();
-              console.log("Clicked NPC");
-            }}
-          />
+          <Npc />
+          <Models />
           <Ground />
         </Physics>
       </Canvas>
