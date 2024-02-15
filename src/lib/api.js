@@ -74,6 +74,7 @@ export const storeCubes = async (cubes, user_id, continent_id) => {
   }
 }
 
+// Get all the models from omnispace api
 export const getModels = async () => {
   const url =  process.env.REACT_APP_OMNISPACE_URL;
   const token = process.env.REACT_APP_OMNISPACE_TOKEN;
@@ -95,3 +96,89 @@ export const getModels = async () => {
   }
 }
 
+// Get all the inModels from supabase
+export const getInModels = async (user_id, continent_id) => {
+  let { data: inModels, error } = await supabase
+    .from('inModels')
+    .select('*')
+    .eq('user_id', user_id)
+    .eq('continent_id', continent_id)
+  if (error){
+    console.log(error)
+    return
+  }
+  return inModels
+}
+
+// Insert new inModel
+const insertInModel = async (inModel) => {
+  const { data, error } = await supabase
+    .from('inModels')
+    .insert(inModel)
+    .select()
+  if (error){
+    console.log(error)
+  }
+}
+
+// Delete inModel by id
+const deleteInModelById = async (id) => {
+  const { error } = await supabase
+    .from('inModels')
+    .delete()
+    .eq('id', id)
+  if (error){
+    console.log(error);
+  }
+}
+
+// Update inModel by id with new position
+const updateInModel = async (inModel) => {
+  const { data, error } = await supabase
+    .from('inModels')
+    .update({ position: inModel.position })
+    .eq('id', inModel.id)
+    .select()
+  if (error){
+    console.log(error);
+  }
+}
+
+// Store new inModels into supabase
+export const storeInModels = async (inModels, user_id, continent_id) => {
+  const initialInModels = await getInModels(user_id, continent_id);
+  // Insert new inModel
+  for (const inModel of inModels){
+    let isExist = false;
+    for (const i of initialInModels){
+      if (inModel.id===i.id){
+        isExist = true;
+        break;
+      }
+    }
+    if (isExist===false){
+      await insertInModel(inModel)
+    }
+  }
+  // Delete inModel
+  for (const i of initialInModels){
+    let isExist = false;
+    for (const inModel of inModels){
+      if (inModel.id===i.id){
+        isExist = true;
+        break;
+      }
+    }
+    if (isExist===false){
+      await deleteInModelById(i.id);
+    }
+  }
+  // Update inModel
+  for (const inModel of inModels){
+    for (const i of initialInModels){
+      if (inModel.id===i.id && inModel.position !== i.position){
+        await updateInModel(inModel)
+      }
+    }
+  }
+}

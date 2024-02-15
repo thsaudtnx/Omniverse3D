@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 import Cursor from '../components/game/Cursor';
 import { Menu } from '../components/game/Menu';
 import { Npc } from '../components/game/Npc';
+import ModelSelector from '../components/game/ModelSelector';
 import Models from '../components/game/Models';
 
 const GamePage = () => {
@@ -39,13 +40,14 @@ const GamePage = () => {
         <Physics>
           <Player />
           <Cubes />
-          <Npc />
           <Models />
+          <Npc />
           <Ground />
         </Physics>
       </Canvas>
       <Cursor />
       <TextureSelector />
+      <ModelSelector />
       <Menu />
     </>
   );

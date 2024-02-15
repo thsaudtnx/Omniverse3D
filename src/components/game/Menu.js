@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { useStore } from "../../hooks/useStore"
 import { supabase } from "../../lib/supabase";
+import ModelSelector from "./ModelSelector";
 import styles from './menu.module.css'
 import { useNavigate, useParams } from "react-router";
 

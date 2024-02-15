@@ -1,14 +1,36 @@
 import { create } from 'zustand'
 import { nanoid } from 'nanoid'
-import { getContinents, getCubes, getModels, storeCubes } from '../lib/api'
+import { getContinents, getCubes, getInModels, getModels, storeCubes, storeInModels } from '../lib/api'
 
 export const useStore = create((set) => ({
   continents : [],
   cubes: [],
   models: [],
+  inModels: [],
   texture: 'dirt',
   getModels : () => {
     getModels().then(models => set({models}))
+  },
+  getInModels : (userId, continentId) => {
+    getInModels(userId, continentId).then(inModels => set({inModels}))
+  },
+  updateInModel : (model) => {
+    set((prev) => ({
+      inModels : prev.inModels.map(inModel => inModel.id === model.id ? model : inModel)
+    }))
+  },
+  addInModel : (model) => {
+    set((prev) => ({
+      inModels : [
+        ...prev.inModels,
+        model,
+      ]
+    }))
+  },
+  removeInModel : (modelId) => {
+    set((prev) => ({
+      inModels: prev.inModels.filter(inModel => inModel.id !== modelId)
+    }))
   },
   getContinents : () => {
     getContinents().then(continents => set({continents}))
@@ -46,12 +68,14 @@ export const useStore = create((set) => ({
   saveWorld: (user_id, continent_id) => {
     set((prev) => {
       storeCubes(prev.cubes, user_id, continent_id)
+      storeInModels(prev.inModels, user_id, continent_id)
       return prev
     })
   },
   resetWorld: () => {
     set(() => ({
-      cubes: []
+      cubes: [],
+      inModels : [],
     }))
   },
 }))

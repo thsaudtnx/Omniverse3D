@@ -1,0 +1,8 @@
+Model Information:
+* title:	Stylized Crate Asset
+* source:	https://sketchfab.com/3d-models/stylized-crate-asset-fe35790843334e5e87889002d7f69dc4
+* author:	stokicdizajn (https://sketchfab.com/stokicdizajn)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
