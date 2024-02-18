@@ -1,27 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './gallery.module.css';
 import { Html } from "@react-three/drei";
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useStore } from '../../hooks/useStore';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-const images = [
-  "https://placehold.co/100x100",
-  "https://placehold.co/100x100",
-  "https://placehold.co/100x100",
-  "https://placehold.co/100x100",
-  "https://placehold.co/100x100",
-  "https://placehold.co/100x100",
-  "https://placehold.co/100x100",
-  
-]
-
 const Gallery = ({current}) => {
+
+  const [images, getImages] = useStore((state) => [state.images, state.getImages]);
+
+  useEffect(() => {
+    getImages(current.id)
+    console.log('Load images from database')
+  }, [current])
+
+  console.log(images);
+
+
   return (
     <Html position={[0, 0, 0]}>
       <div className={styles.container}>
@@ -32,18 +32,18 @@ const Gallery = ({current}) => {
           <div className={styles.images}>
             <Swiper
               modules={[Navigation, Pagination, Scrollbar, A11y]}
-              spaceBetween={50}
+              spaceBetween={100}
               slidesPerView={2}
               navigation
               pagination={{ clickable: true }}
             >
-              {images.map((index, image) => (
-                <SwiperSlide key={index}>
+              {images?.map((image) => (
+                <SwiperSlide key={image.id}>
                   <div className={styles.imageContainer}>
                     <img 
                       className={styles.image}
-                      src="https://placehold.co/150x150"
-                      alt={image}
+                      src={image.src}
+                      alt={image.src}
                     />
                   </div>
                 </SwiperSlide>

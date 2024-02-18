@@ -41,6 +41,7 @@ const Earth = (props) => {
     console.log('Load continents from database')
     getContinents()
   }, [getContinents])
+  console.log(continents)
 
   useFrame(({clock, camera}) => {
     const elapsedTime = clock.getElapsedTime();
@@ -60,9 +61,10 @@ const Earth = (props) => {
   })
 
   const nextContinent = () => {
-    const idx = current.id === 6 ? 0 : current.id + 1
-    setCurrent(continents[idx]);
-    const {latitude, longitude} = continents[idx];
+    const nextId = current.id === 7 ? 1 : current.id + 1
+    const nextContinent = continents.find(c => c.id === nextId)
+    setCurrent(nextContinent);
+    const {latitude, longitude} = nextContinent;
     const xPos = 1.15 * Math.cos(latitude) * Math.cos(longitude);
     const yPos = 1.15 * Math.cos(latitude) * Math.sin(longitude);
     const zPos = 1.15 * Math.sin(latitude);
@@ -70,9 +72,10 @@ const Earth = (props) => {
   }
 
   const prevContinent = () => {
-    const idx = current.id === 0 ? 6 : current.id-1;
-    setCurrent(continents[idx]);
-    const {latitude, longitude} = continents[idx];
+    const prevId = current.id === 1 ? 7 : current.id-1;
+    const prevContinent = continents.find(c => c.id === prevId);
+    setCurrent(prevContinent);
+    const {latitude, longitude} = prevContinent;
     const xPos = 1.15 * Math.cos(latitude) * Math.cos(longitude);
     const yPos = 1.15 * Math.cos(latitude) * Math.sin(longitude);
     const zPos = 1.15 * Math.sin(latitude);
@@ -120,9 +123,7 @@ const Earth = (props) => {
         />
         <polarGridHelper />
       </group>
-      {current && <Gallery 
-        current={current}
-      />}
+      {current && <Gallery current={current}/>}
       <Description 
         current={current}
         nextContinent={nextContinent}

@@ -1,6 +1,18 @@
 import { supabase } from '../lib/supabase'
 import axios from 'axios';
 
+export const getImages = async(continent_id) => { 
+  let { data: images, error } = await supabase
+    .from('images')
+    .select('*')
+    .eq('continent_id', continent_id)
+  if (error){
+    console.log(error)
+    return
+  }
+  return images
+}
+
 export const getContinents = async () => {
   let { data: continents, error } = await supabase
     .from('continents')

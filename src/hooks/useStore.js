@@ -1,13 +1,17 @@
 import { create } from 'zustand'
 import { nanoid } from 'nanoid'
-import { getContinents, getCubes, getInModels, getModels, storeCubes, storeInModels } from '../lib/api'
+import { getContinents, getCubes, getImages, getInModels, getModels, storeCubes, storeInModels } from '../lib/api'
 
 export const useStore = create((set) => ({
   continents : [],
   cubes: [],
   models: [],
   inModels: [],
+  images : [],
   texture: 'dirt',
+  getImages : (continent_id) => {
+    getImages(continent_id).then(images => set({images}))
+  },
   getModels : () => {
     getModels().then(models => set({models}))
   },

@@ -15,6 +15,8 @@ const Description = ({current, nextContinent, prevContinent}) => {
     navigate('/');
   }
 
+  console.log(current)
+
   return (
     <Html position={[0, 0, 0]}>
       <div className={styles.container}>
@@ -24,7 +26,7 @@ const Description = ({current, nextContinent, prevContinent}) => {
             className={styles.arrow}
           />}
           <div className={styles.title}>
-            {current ? current.name : 'Hello World'}
+            {current ? current.name : 'Hello World!'}
           </div>
           {current &&  <FaArrowAltCircleRight 
             onClick={() => nextContinent()}
@@ -37,21 +39,20 @@ const Description = ({current, nextContinent, prevContinent}) => {
           </div>
           <div>
             {current ? "Do you want to play the world?" : 
-            "Welcome to Omniverse 3D. This app is...."}
+            "The project aims to create an innovative and immersive 3D metaverse world using cutting-edge technologies, including React.js, Three.js, Supabase, and the Omnicapture API. This web-based metaverse will serve as an educational platform, offering students the opportunity to craft their unique virtual worlds, similar to popular games like Minecraft. What sets this metaverse apart is the integration of the Omnicapture API, allowing students to scan real-world objects and seamlessly transfer them into their virtual environments."}         </div>
           </div>
-        </div>
-        <div className={styles.buttons}>
-          {current && <button
+        {current && <div className={styles.buttons}>
+          <button
             className={styles.button}
             onClick={() => {
               navigate(`/${params.userId}/${current.id}`);
-          }}>Start</button>}
-          {current && <button
+          }}>Start</button>
+          <button
             className={styles.button}
             onClick={() => {
               signOutUser();
-          }}>Go back</button>}
-        </div>
+          }}>Go back</button>
+        </div>}
       </div>
     </Html>
   )
