@@ -19,6 +19,11 @@ export const useStore = create((set) => ({
   getInModels : (userId, continentId) => {
     getInModels(userId, continentId).then(inModels => set({inModels}))
   },
+  setInModelScale : (inModel) => {
+    set((prev) => ({
+      inModels : prev.inModels.map(m => m.id===inModel.id ? inModel : m)
+    }))
+  },
   setHoldInModel : (inModel) => {
     set((prev) => ({
       holdInModel : inModel,
@@ -37,11 +42,15 @@ export const useStore = create((set) => ({
       ]
     }))
   },
-  addInModel : (model) => {
+  addInModel : (model, user_id, continent_id) => {
     set((prev) => ({
       inModels : [
         ...prev.inModels,
-        model,
+        {
+          ...model,
+          user_id : user_id,
+          continent_id : continent_id,
+        },
       ]
     }))
   },
@@ -94,6 +103,8 @@ export const useStore = create((set) => ({
     set(() => ({
       cubes: [],
       inModels : [],
+      texture : 'dirt',
+      holdInModel : {},
     }))
   },
 }))

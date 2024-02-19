@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
 import styles from './modelSelector.module.css';
 import { useStore } from '../../hooks/useStore';
 import { useKeyboard } from '../../hooks/useKeyboard';
+import { useParams } from 'react-router';
 
 const Model = ({model, isActive, isChecked, isHold}) => {
 
@@ -39,6 +40,7 @@ const Model = ({model, isActive, isChecked, isHold}) => {
 
 const ModelSelector = () => {
   const [currentIdx, setCurrentIdx] = useState(0)
+  const {user_id, continent_id} = useParams();
   const [models, 
     getModels, 
     inModels, 
@@ -82,7 +84,13 @@ const ModelSelector = () => {
       if (flag){
         removeInModel(models[currentIdx].id)
       } else {
-        addInModel({...models[currentIdx], position: [0, 0, 0]})
+        addInModel({
+          ...models[currentIdx], 
+          position: [0, 0, 0],
+          scale : 10,
+          user_id : user_id,
+          continent_id : continent_id,
+        })
       }
     }
   }, [upInModel, downInModel, selectInModel])

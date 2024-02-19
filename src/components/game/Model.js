@@ -15,28 +15,25 @@ const Model = ({inModel}) => {
     loader.setMaterials(materials)
   })
   const [isHovered, setIsHovered] = useState(false)
-  const [holdInModel, setHoldInModel, releaseHoldInModel] = useStore((state) => [
+  const [holdInModel, setHoldInModel, releaseHoldInModel, setInModelScale] = useStore((state) => [
     state.holdInModel,
     state.setHoldInModel,
     state.releaseHoldInModel,
+    state.setInModelScale,
   ])
-
-  console.log(holdInModel)
   
   return (
     <primitive 
       object={obj} 
-      scale={isHovered ? 5 : 10}
+      scale={inModel.scale}
       position={inModel.position}
       onPointerMove={(e) => {
         e.stopPropagation()
         setIsHovered(true)
-        console.log("hovered in")
       }}
       onPointerOut={(e) => {
         e.stopPropagation()
         setIsHovered(false)
-        console.log("hovered out")
       }}
       onClick={(e) => {
         e.stopPropagation()
@@ -46,6 +43,24 @@ const Model = ({inModel}) => {
           setHoldInModel(inModel)
         }
         console.log("Clicked Model");
+      }}
+      onWheel={(e) => {
+        e.stopPropagation()
+        if (isHovered){
+          if (e.deltaY > 0 && inModel.scale > 5) {
+            console.log('Scrolling down');
+            setInModelScale({
+              ...inModel,
+              scale : inModel.scale - 1,
+            })
+          } else if (e.deltaY < 0 && inModel.scale < 10) {
+            console.log('Scrolling up');
+            setInModelScale({
+              ...inModel,
+              scale : inModel.scale + 1,
+            })
+          }
+        }
       }}
     />
   )
