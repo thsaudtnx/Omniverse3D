@@ -10,7 +10,11 @@ export const Ground = () => {
 	}))
 	const {userId, continentId} = useParams();
 
-	const [addCube] = useStore((state) => [state.addCube])
+	const [addCube, releaseHoldInModel, holdInModel] = useStore((state) => [
+		state.addCube,
+		state.releaseHoldInModel,
+		state.holdInModel,
+	])
 
 	groundTexture.repeat.set(100, 100)
 
@@ -19,7 +23,11 @@ export const Ground = () => {
 			onClick={(e) => {
 				e.stopPropagation()
 				const [x, y, z] = Object.values(e.point).map(val => Math.ceil(val));
-				addCube(x, y, z, userId, continentId)
+				if (Object.keys(holdInModel).length===0){
+					addCube(x, y, z, userId, continentId)
+				} else {
+					releaseHoldInModel(x, y, z)
+				}
 			}}
 			ref={ref}
 		>

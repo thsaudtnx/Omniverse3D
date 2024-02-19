@@ -9,6 +9,7 @@ export const useStore = create((set) => ({
   inModels: [],
   images : [],
   texture: 'dirt',
+  holdInModel : {},
   getImages : (continent_id) => {
     getImages(continent_id).then(images => set({images}))
   },
@@ -18,9 +19,22 @@ export const useStore = create((set) => ({
   getInModels : (userId, continentId) => {
     getInModels(userId, continentId).then(inModels => set({inModels}))
   },
-  updateInModel : (model) => {
+  setHoldInModel : (inModel) => {
     set((prev) => ({
-      inModels : prev.inModels.map(inModel => inModel.id === model.id ? model : inModel)
+      holdInModel : inModel,
+      inModels: prev.inModels.filter(inM => inM.id !== inModel.id),
+    }))
+  },
+  releaseHoldInModel : (x, y, z) => {
+    set((prev) => ({
+      holdInModel : {},
+      inModels: [
+        ...prev.inModels,
+        {
+          ...prev.holdInModel,
+          position : [x, y, z],
+        }
+      ]
     }))
   },
   addInModel : (model) => {

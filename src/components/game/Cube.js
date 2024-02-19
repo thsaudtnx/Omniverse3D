@@ -10,7 +10,12 @@ export const Cube = ({ position, texture, userId, continentId }) => {
 		type: 'Static',
 		position
 	}))
-	const [addCube, removeCube] = useStore((state) => [state.addCube, state.removeCube])
+	const [addCube, removeCube, holdInModel, releaseHoldInModel] = useStore((state) => [
+		state.addCube, 
+		state.removeCube,
+		state.holdInModel,
+		state.releaseHoldInModel,
+	])
 
 	const activeTexture = textures[texture + 'Texture']
 
@@ -28,33 +33,59 @@ export const Cube = ({ position, texture, userId, continentId }) => {
 				e.stopPropagation()
 				const clickedFace = Math.floor(e.faceIndex / 2)
 				const { x, y, z } = ref.current.position
+				const isHold = Object.keys(holdInModel).length !== 0
 				if (e.button === 0) {
-					removeCube(x, y, z)
-					console.log('Deleted!')
+					if (!isHold){
+						removeCube(x, y, z)
+					}
 					return
 				}
 				else if (clickedFace === 0) {
-					addCube(x + 1, y, z, userId, continentId)
+					if (isHold){
+						releaseHoldInModel(x+1, y, z)
+					} else {
+						addCube(x + 1, y, z, userId, continentId)
+					}
 					return
 				}
 				else if (clickedFace === 1) {
-					addCube(x - 1, y, z, userId, continentId)
+					if (isHold){
+						releaseHoldInModel(x-1, y, z)
+					} else{
+						addCube(x - 1, y, z, userId, continentId)
+					}
 					return
 				}
 				else if (clickedFace === 2) {
-					addCube(x, y + 1, z, userId, continentId)
+					if (isHold){
+						releaseHoldInModel(x, y+1, z)
+					} else{
+						addCube(x, y + 1, z, userId, continentId)
+					}
 					return
 				}
 				else if (clickedFace === 3) {
-					addCube(x, y - 1, z, userId, continentId)
+					if (isHold){
+						releaseHoldInModel(x, y-1, z)
+					} else{
+						addCube(x, y - 1, z, userId, continentId)
+					}
 					return
 				}
 				else if (clickedFace === 4) {
-					addCube(x, y, z + 1, userId, continentId)
+					if (isHold){
+						releaseHoldInModel(x, y, z+1)
+					} else {
+						addCube(x, y, z + 1, userId, continentId)
+					}
 					return
 				}
 				else if (clickedFace === 5) {
-					addCube(x, y, z - 1, userId, continentId)
+					if (isHold){
+						releaseHoldInModel(x, y, z-1)
+					} else{
+						addCube(x, y, z - 1, userId, continentId)
+					}
 					return
 				}
 			}}

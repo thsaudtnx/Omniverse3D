@@ -12,6 +12,9 @@ function actionByKey(key) {
 		Digit3: 'glass',
 		Digit4: 'wood',
 		Digit5: 'log',
+		KeyJ: 'downInModel',
+		KeyK: 'selectInModel',
+		KeyL: 'upInModel',
 	}
 	return keyActionMap[key]
 }
@@ -28,6 +31,9 @@ export const useKeyboard = () => {
 		glass: false,
 		wood: false,
 		log: false,
+		downInModel: false,
+		selectInModel: false,
+		upInModel: false,
 	})
 
 	const handleKeyDown = useCallback((e) => {
