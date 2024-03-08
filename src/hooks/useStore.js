@@ -42,15 +42,11 @@ export const useStore = create((set) => ({
       ]
     }))
   },
-  addInModel : (model, user_id, continent_id) => {
+  addInModel : (newInModel) => {
     set((prev) => ({
       inModels : [
         ...prev.inModels,
-        {
-          ...model,
-          user_id : user_id,
-          continent_id : continent_id,
-        },
+        newInModel,
       ]
     }))
   },

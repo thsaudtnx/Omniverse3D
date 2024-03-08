@@ -40,7 +40,7 @@ const Model = ({model, isActive, isChecked, isHold}) => {
 
 const ModelSelector = () => {
   const [currentIdx, setCurrentIdx] = useState(0)
-  const {user_id, continent_id} = useParams();
+  const {userId, continentId} = useParams();
   const [models, 
     getModels, 
     inModels, 
@@ -84,13 +84,17 @@ const ModelSelector = () => {
       if (flag){
         removeInModel(models[currentIdx].id)
       } else {
-        addInModel({
-          ...models[currentIdx], 
-          position: [0, 0, 0],
+        const newInModel = {
+          user_id : userId,
+          continent_id : continentId,
+          id : models[currentIdx].id,
+          mtlUrl : models[currentIdx].mtlUrl,
+          name : models[currentIdx].name,
+          objUrl : models[currentIdx].objUrl,
+          position : [0, 0, 0],
           scale : 10,
-          user_id : user_id,
-          continent_id : continent_id,
-        })
+        }
+        addInModel(newInModel);
       }
     }
   }, [upInModel, downInModel, selectInModel])

@@ -159,6 +159,7 @@ const updateInModel = async (inModel) => {
 // Store new inModels into supabase
 export const storeInModels = async (inModels, user_id, continent_id) => {
   const initialInModels = await getInModels(user_id, continent_id);
+  console.log(inModels);
   // Insert new inModel
   for (const inModel of inModels){
     let isExist = false;
