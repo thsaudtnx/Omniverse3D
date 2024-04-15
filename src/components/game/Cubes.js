@@ -19,7 +19,7 @@ export const Cubes = () => {
 
 	console.log(cubes)
 
-	return cubes.map(({ id, position, texture }) => {
+	return cubes?.map(({ id, position, texture }) => {
 		return (
 			<Cube  
 				key={id}

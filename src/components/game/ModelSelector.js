@@ -103,7 +103,7 @@ const ModelSelector = () => {
     <div className={styles.container}>
       <div className={styles.title}>Model Selector</div>
       <div className={styles.items}>
-        {models.map((model, index) => {
+        {models?.map((model, index) => {
           return <Model
             key={model.id} 
             model={model}
