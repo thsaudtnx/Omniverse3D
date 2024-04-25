@@ -7,7 +7,7 @@ import EarthTexture from '../../assets/solar/earth.jpg';
 import JupiterTexture from '../../assets/solar/jupiter.jpg';
 import MarsTexture from '../../assets/solar/mars.jpg';
 import MercuryTexture from '../../assets/solar/mercury.jpg';
-import NeptuneTexture from '../../assets/solar/neptune.jpg';
+import NeptuneTexture from '../../assets/solar/neptune.jpg'; 
 import PlutoTexture from '../../assets/solar/pluto.jpg';
 import SaturnRingTexture from '../../assets/solar/saturn ring.png';
 import SaturnTexture from '../../assets/solar/saturn.jpg';

@@ -1,10 +1,10 @@
-import dirtImg from './dirt.jpg';
-import grassImg from './grass.jpg';
-import glassImg from './glass.png';
-import logImg from './log.jpg';
-import woodImg from './wood.png';
+import dirtImg from './testbrick.jpg';
+import grassImg from './testgrass.jpg';
+import glassImg from './testmar.jpg';
+import logImg from './testlog.jpg';
+import woodImg from './testwood.jpg';
 import groundImg from './newGround.jpg';
-import brickImg from './brick.jpg';
+//import brickImg from './testbrick.jpg';
 
 export {
   dirtImg,
@@ -13,5 +13,5 @@ export {
   woodImg,
   logImg,
   groundImg,
-  brickImg,
+  //brickImg,
 }

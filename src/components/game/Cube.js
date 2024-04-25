@@ -96,7 +96,7 @@ export const Cube = ({ position, texture, userId, continentId }) => {
 				color={isHovered ? 'grey' : 'white'}
 				map={activeTexture}
 				transparent={true}
-				opacity={texture === 'glass' ? 0.6 : 1}
+				opacity={1}
 				attach="material" />
 		</mesh>
 	)
