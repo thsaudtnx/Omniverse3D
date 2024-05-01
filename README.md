@@ -34,12 +34,10 @@ The project integrates real world objects into the virtual world. Such a feature
 - REACT_APP_OMNISPACE_URL
 
 ## 📚 Usage
-```
-git clone https://github.com/thsaudtnx/Omniverse3D.git
-cd Omniverse3D
-npm install
-npm start 
-```
+1. ``` git clone https://github.com/thsaudtnx/Omniverse3D.git ```
+2. ``` cd Omniverse3D ```
+3. ``` npm install ```
+4. ``` npm start ```
 
 ## 🌐 Web
 ![AuthPage](https://github.com/thsaudtnx/Omniverse3D/assets/79046791/85e810bb-9e39-4382-bca1-7ab2ad9c1f58)
