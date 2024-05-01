@@ -1,5 +1,7 @@
 # Omniverse 3D
-Software Engineering Group Project
+- Software Engineering Group Project
+- github : https://github.com/thsaudtnx/Omniverse3D
+
 
 ## 🖥️ Project Description
 The project integrates real world objects into the virtual world. Such a feature is made possible by the Omni-Capture API which integrates complex algorithms to transform pictures into 3D objects. This project is a functioning web application that can be accessed through all browsers and provides security to users through a well-known and established database/authentication system. The end goal of the project is to provide an immersive learning platform to students and educators to further enhance learning experience and knowledge retention. The project helps foster a deeper connection between the physical and digital realms, blurring the lines between the two and enriching the learning experience.
@@ -20,9 +22,22 @@ The project integrates real world objects into the virtual world. Such a feature
 - Used React Three.js
 - Manage state with Zustand
 
-## ⚙️ Stack
+## 💿 Stack
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Threejs](https://img.shields.io/badge/threejs-black?style=for-the-badge&logo=three.js&logoColor=white)
+
+## ⚙️ Settings
+- REACT_APP_PROJECT_URL
+- REACT_APP_ANON_KEY
+- REACT_APP_GOOGLE_MAP_API_KEY
+- REACT_APP_OMNISPACE_TOKEN
+- REACT_APP_OMNISPACE_URL
+
+## 📚 Usage
+> git clone https://github.com/thsaudtnx/Omniverse3D.git </br>
+> cd Omniverse3D </br>
+> npm install </br>
+> npm start </br>
 
 ## 🌐 Web
 ![AuthPage](https://github.com/thsaudtnx/Omniverse3D/assets/79046791/85e810bb-9e39-4382-bca1-7ab2ad9c1f58)
